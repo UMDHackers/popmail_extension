@@ -1,41 +1,3 @@
-    <!--
-<!doctype html>
-
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
-<html>
-  <head>
-    <title>Getting Started Extension's Popup</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-    </style>
-
-
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-
-    <script src="popup.js"></script>
-  </head>
-  <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
-  </body>
-</html>
-
--->
 <!DOCTYPE html>
 
 <html>
@@ -43,29 +5,53 @@
     <title>Getting Started Extension's Popup</title>
     <script src = "popup.js"></script>
     <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-      }
-      #header {
-        background-color: grey;
-        color: white;
-      }
-      #message {
-        width: 500px;
-        height: 150px;
-      }
-
+		body {
+			font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+			font-size: 16px;
+		}
+		h3 {
+			font-size: 14px;
+		}
+		#header {
+			background-color: grey;
+			color: white;
+		}
+		#message {
+			width: 500px;
+			height: 150px;
+		}
+		.button {
+			background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 10px 22px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 4px;
+			float: right;
+		}
+		input {
+			border: none;
+			width: 80%;
+			height: 50%;
+		}
+		textarea:focus, input:focus{
+			outline: none;
+		}
     </style>
   </head>
   <body>
-    <form>
-      <h3 id = "header"> Compose new email </h3>
-      To <input name="send_to"><br>
+	  <h3 id = "header"> Compose new email </h3>
+	  To: <input id = "to" name="send_to" style="margin-left: 2px;"><br>
       <hr>
-      Subject <input name="subject"><br>
+      Subject: <input id = "subject" name="subject" style="margin-left: 2px;"><br>
       <hr>
-      <textarea name="message" id = "message"></textarea>
-      <button autofocus name="send">Send</button>
-    </form>
+      <textarea name="message" id = "message" placeholder = "Enter message here"></textarea>
+	  <br>	
+	  
+      <button autofocus class = "button" id = "send" name="send">Send</button>
+	  
   </body>
 </html>

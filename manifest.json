@@ -1,19 +1,30 @@
 {
   "manifest_version": 2,
-
   "name": "PopMail",
-  "description": "A fast an easy way to send emails without going to your email",
+  "description": "A fast and easy way to send emails without going to your email",
   "version": "1.0",
-
+  "content_security_policy": "script-src https://*.google.com 'unsafe-eval'; object-src 'self'",
+  "background": {
+	"scripts": ["popup.js"],
+	"persistent": true
+  },
+  
+  "permissions": [
+    "identity",
+    "*://*.google.com/*"
+  ],
+  
   "browser_action": {
     "default_icon": "mail.png",
     "default_popup": "popup.html",
     "default_title": "Compose Mail"
   },
+  
+  "oauth2": {
+	"client_id": "420318489528-4ch331mgt39jkbhb7sjijpmok7mtnrlv.apps.googleusercontent.com",
+	"scopes": [
+      "https://www.googleapis.com/auth/gmail.send"
+    ] 
+  }
 
-  "permissions": [
-    "activeTab",
-    "identity",
-    "identity.email"
-  ]
 }
